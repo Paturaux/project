@@ -1,5 +1,5 @@
 <header>
-    <a href="<?= $host ?>/depot.html">d&eacute;pot</a>
-    <a href="<?= $host ?>/login.html">agenda</a>
-    <a href="<?= $host ?>/login.html">notes</a>
+    <a href="<?= $host ?>/depot.html"><span class="buttonMenu">d&eacute;pot</span></a>
+    <a href="<?= $host ?>/login.html"><span class="buttonMenu">agenda</span></a>
+    <a href="<?= $host ?>/login.html"><span class="buttonMenu">notes</span></a>
 </header>

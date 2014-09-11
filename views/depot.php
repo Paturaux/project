@@ -7,7 +7,10 @@
     </form>
 
     <?php foreach ($folderContent as $file): ?>
-        <div id="file"><?= $file ?></div>
+        <div class="file">
+            <img class="fileImage" src="<?= $host ?>/depot/war.png"/>
+            <span class="fileName"><?= $file ?></span>
+        </div>
     <?php endforeach; ?>
 
     <?php include_once './views/footer.php'; ?>

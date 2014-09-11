@@ -1,12 +1,12 @@
 *{
     /*    margin: 0;
         padding: 0;
-        text-decoration: none;
-        list-style-type: none;
         outline: none;
-        resize: none;
-        border: none;*/
-    font-family: 'Century Gothic';
+    border: none;
+        list-style-type: none;
+        resize: none;*/
+    font-family: 'Kalinga';/*'Century Gothic';*/
+    text-decoration: none; /* Soulignement des liens, ... */
     font-size: 14px;
     color: #555555;
 }
@@ -21,14 +21,21 @@ body{
 
 header{
     width: 100%;
-    height: 50px;
-    background: black;
+    height: 40px;
+    background: #333;
+    box-shadow: 1px 0px 1px #000;
 }
-/*footer{
-    width: 100%;
-    height: 50px;
-    background: black;
-}*/
+header a span.buttonMenu{
+    display: inline-block;
+    height: 20px;
+    padding: 10px 50px;
+    text-align: center;
+    color: #EEE;
+}
+header a:hover{
+    border-bottom: 3px solid green;
+}
+
 form#connection{
     width: 400px;
     margin: 10% auto;
