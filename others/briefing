@@ -1,0 +1,15 @@
+url = www.domaine.com/page.html
+       
+content :
+    - contact
+    - CV
+    - upload / download file
+    - report bug
+    - admin
+    - connexion
+    - inscription
+    - account
+
+Requis :
+    - 'short open tags' activ for PHP
+    - 'rewrite_module' activ for Apache-->
