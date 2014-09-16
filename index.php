@@ -17,5 +17,8 @@ require_once './controllers/' . $controller . '.php';
 
 <!DOCTYPE html>
 <html>
+    <noscript>
+        <div id="noscript">Vous devez activez JavaScript pour le bon fonctionnement du site !</div>
+    </noscript>    
     <?php new $controller(); ?>
 </html>

@@ -19,7 +19,26 @@ body{
     margin: 0;
 }
 
-header{
+div#noscript{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 10px;
+    width: 250px;
+    height: 40px;
+    margin-left: -135px;
+    margin-top: -30px;
+    text-align: center;
+    background-color: #FFF;
+    color: red;
+    border: solid 3px rgba(100, 100, 100, 0.3);
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+         -o-border-radius: 5px;
+            border-radius: 5px;
+}
+
+header{ 
     width: 100%;
     height: 40px;
     background: #333;
