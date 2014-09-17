@@ -8,22 +8,22 @@
     <form method="post" action="<?= $host ?>/depot.html">
         <input type="texte" name="nameFile"/>
         <input type="submit" name="doc" value="cr&eacute;er"/>
-    </form>-->
+    </form>
     
     <input type="texte" id="nameFile"/>
-    <button value="+" onclick="a(document.getElementById('nameFile'));"/>
+    <button value="+" onclick="a(document.getElementById('nameFile'));">Ok</button>-->
     
-    <?php foreach ($folderContent as $file): ?>
+    <?php foreach ($fileListe as $name => $image): ?>
         <div class="file">
             <img class="fileImage" src="<?= $host ?>/<?= $image ?>"/>
-            <span class="fileName"><?= $file ?></span>
+            <span class="fileName"><?= $name ?></span>
         </div>
     <?php endforeach; ?>
 
-    <script type="text/javascript">
+<!--    <script type="text/javascript">
     a(var nameFile){
         
     }
-    </script>
+    </script>-->
     <?php include_once './views/footer.php'; ?>
 </body>

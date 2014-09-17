@@ -12,21 +12,22 @@ class depot extends Controller {
             $this->createFolder($_POST['nameFile']);
         }
 
+        // Trie des fichiers par type
         $fileListe = array();
         foreach ($this->readFolder() as $file) {
-            $extension = substr(strrchr($file, '.'), 1);
-            if (array_search($extension, ['png', 'gif', 'jpg', 'jpeg', 'txt'])) {
-                $image = $file;
+            $extension = strtolower(substr(strrchr($file, '.'), 1));
+            if (in_array($extension, array('png', 'gif', 'jpg', 'jpeg'), true)) {
+                $image = 'depot/' . $file;
             } else {
-                $image = $host . '/resources/icones/folder.png';
+                $image = 'resources/icones/folder.png';
             }
-            array_push($fileListe, 'a'=>'z');
+            $fileListe[$file] = $image;
         }
+        
         $variables = array(
-            'folderContent' => $this->readFolder(),
+            'fileListe' => $fileListe,
             'path' => 'depot'
         );
-
         parent::callView('D&eacute;pot', $variables, array('depot.css'));
     }
 

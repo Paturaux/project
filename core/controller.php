@@ -22,8 +22,7 @@ abstract class Controller {
         $this->track();
     }
 
-    protected
-            function track() {
+    protected function track() {
         $tracking = $this->callModel('tracking');
         if (!isset($_COOKIE['TAG'])) {
             $tag = $tracking->insertTag();
