@@ -8,7 +8,7 @@
     font-family: 'Kalinga';/*'Century Gothic';*/
     text-decoration: none; /* Soulignement des liens, ... */
     font-size: 14px;
-    color: #555;
+    color: #555555;
 }
 html,
 body{
@@ -33,27 +33,39 @@ div#noscript{
     background-color: #FFF;
     border: 1px solid #ddd;
     -webkit-border-radius: 5px;
-       -moz-border-radius: 5px;
-         -o-border-radius: 5px;
-            border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
     z-index: 100000;
 }
 
 header{ 
     width: 100%;
-    height: 39px;
-    background-color: #FFF;
-    border-bottom: 1px solid #ddd;
+    height: 40px;
+    background-color: #111;
 }
 header a span.buttonMenu{
     display: inline-block;
-    height: 20px;
-    padding: 10px 50px;
-    color: #007aff;
+    width: 125px;
+    height: 40px;
+    margin: auto -2px;
     text-align: center;
+    font-size: 16px;
+    color: #999;
 }
-header a:hover{
+header a span.buttonMenu:hover,
+header a span.buttonMenuActiv{
+    background-color: #08C;
+    color: #EEE;
 }
+header a span.buttonMenu img{
+    width: 20px;
+    height: 20px;
+    margin: 10px 15px -4px 0px;
+}
+header a span.buttonMenu img#deposit{   background-image: url('../icones/deposit.png'); }
+header a span.buttonMenu img#schedule{  background-image: url('../icones/schedule.png'); }
+header a span.buttonMenu img#memo{      background-image: url('../icones/memo.png'); }
 
 form#connection{
     width: 400px;
