@@ -25,8 +25,7 @@ class tracking extends Model {
     public function insertTrack($tag) {
         $query = 'INSERT INTO `tracking` VALUES (null, ?, now(), ?)';
         $action = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-        $this->executeQuery($query, array($tag, $action));
-        return mysql_insert_id();
+        return $this->executeQuery($query, array($tag, $action));
     }
 
 }

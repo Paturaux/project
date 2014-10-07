@@ -28,10 +28,8 @@ abstract class Controller {
             $tag = $tracking->insertTag();
             $time = time() + 3600 * 2;
             setcookie('TAG', $tag, $time);
-            $tracking->insertTrack($tag);
-        } else {
-            $tracking->insertTrack($_COOKIE['TAG']);
         }
+        $tracking->insertTrack($_COOKIE['TAG']);
     }
 
 }
