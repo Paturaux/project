@@ -4,31 +4,31 @@ class depot extends Controller {
 
     private $depot = './depot/';
 
-    public function __construct() {
-        parent::__construct();
+    public function __construct($action = null) {
+        if (isset($action)) {
+            $fileListe = array();
+            foreach ($this->readFolder('depot/' . $action . '/') as $file) {
+                array_push($fileListe, $this->fileProperty($this->depot . $file));
+            }
+            include './views/folder.php';
+        } else {
+            parent::__construct();
+//            if (isset($_POST['envoyer'])) {
+//                $this->upload();
+//            }
+//            if (isset($_POST['doc'])) {
+//                mkdir($this->depot . $_POST['nameFile']);
+//            }
 
-        if (isset($_POST['envoyer'])) {
-            $this->upload();
+            $variables = array(
+            );
+            parent::callView('D&eacute;pot', $variables, array('depot.css'));
         }
-        if (isset($_POST['doc'])) {
-
-            mkdir($this->depot . $_POST['nameFile']);
-        }
-
-        $fileListe = array();
-        foreach ($this->readFolder() as $file) {
-            array_push($fileListe, $this->fileProperty($this->depot . $file));
-        }
-
-        $variables = array(
-            'fileListe' => $fileListe,
-        );
-        parent::callView('D&eacute;pot', $variables, array('depot.css'));
     }
 
-    private function readFolder($folder = './depot/') {
+    private function readFolder($folder = 'depot/') {
         $fileList = array();
-        $iterator = new DirectoryIterator($folder);
+        $iterator = new DirectoryIterator('./' . $folder);
         foreach ($iterator as $file) {
             if (!$file->isDot()) {
                 $fileList[] = $file->getFilename();
@@ -41,6 +41,7 @@ class depot extends Controller {
         $properties = array();
         $stats = stat($name);
         $properties['name'] = basename($name);
+        $properties['type'] = (is_file($name) ? 'file' : 'folder');
         $properties['extension'] = strtolower(substr(strrchr($name, '.'), 1));
         $properties['path'] = dirname($name);
         $properties['icone'] = dirname($name) . '/' . basename($name);

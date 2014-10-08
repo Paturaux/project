@@ -12,6 +12,7 @@ abstract class Controller {
     }
 
     protected function callView($title, $variables = array(), $import = array()) {
+        // $this->track();
         $host = 'http://' . $_SERVER['HTTP_HOST'] . '/project';
         foreach ($variables as $var) {
             ${key($variables)} = $var;
@@ -19,7 +20,6 @@ abstract class Controller {
         }
         include_once './views/head.php';
         include_once './views/' . get_class($this) . '.php';
-        $this->track();
     }
 
     protected function track() {
@@ -28,8 +28,10 @@ abstract class Controller {
             $tag = $tracking->insertTag();
             $time = time() + 3600 * 2;
             setcookie('TAG', $tag, $time);
+            $tracking->insertTrack($tag);
+        } else {
+            $tracking->insertTrack($_COOKIE['TAG']);
         }
-        $tracking->insertTrack($_COOKIE['TAG']);
     }
 
 }

@@ -10,15 +10,16 @@ if (isset($_GET['page']) && is_file('./controllers/' . $_GET['page'] . '.php')) 
 } else {
     header('Location: ' . $host . 'error404.html');
 }
+$action = null;
+if (isset($_GET['action'])) {
+    $action = $_GET['action'];
+}
 
 require_once './core/controller.php';
 require_once './controllers/' . $controller . '.php';
 ?>
 
 <!DOCTYPE html>
-<html>
-    <noscript>
-        <div id="noscript">Vous devez activez JavaScript pour le bon fonctionnement du site !</div>
-    </noscript>    
-    <?php new $controller(); ?>
+<html>    
+    <?php new $controller($action); ?>
 </html>

@@ -8,8 +8,22 @@ div#toolbar{
     border-bottom: solid 1px #D4D4D4;
 }
 
-
-
+div#toolbar span.iconToolbar{
+    display: inline-block;
+    margin: 3px 2px;
+    width: 34px;
+    height: 34px;
+    background-repeat: no-repeat;
+    background-position: 7px;
+    cursor: pointer;
+}
+div#toolbar span.iconToolbar:hover{
+    background-color: #DDD;
+}
+div#toolbar span#download{    background-image: url('../icones/download.png'); }
+div#toolbar span#upload{      background-image: url('../icones/upload.png'); }
+div#toolbar span#filter{      background-image: url('../icones/filter.png'); }
+div#toolbar span#sinchronize{ background-image: url('../icones/sinchronize.png'); }
 
 div.file{
     position: relative;

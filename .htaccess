@@ -1,5 +1,5 @@
 Options +FollowSymlinks 
 RewriteEngine on
-RewriteRule ^([a-zA-Z\-]*)_([1-9]*)\.html$ index.php?page=$1&action=$2 [L]
+RewriteRule ^([a-zA-Z\-]*)_([1-9a-zA-Z\-]*)\.html$ index.php?page=$1&action=$2 [L]
 RewriteRule ^([a-zA-Z\-]*).html$ index.php?page=$1 [L]
 ErrorDocument 404 /project/index.php?page=error404
