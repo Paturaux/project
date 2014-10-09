@@ -7,7 +7,7 @@ class depot extends Controller {
     public function __construct($action = null) {
         if (isset($action)) {
             $fileListe = array();
-            foreach ($this->readFolder('depot/' . $action . '/') as $file) {
+            foreach ($this->readFolder($action . '/') as $file) {
                 array_push($fileListe, $this->fileProperty($this->depot . $file));
             }
             include './views/folder.php';
@@ -26,9 +26,9 @@ class depot extends Controller {
         }
     }
 
-    private function readFolder($folder = 'depot/') {
+    private function readFolder($folder = null) {
         $fileList = array();
-        $iterator = new DirectoryIterator('./' . $folder);
+        $iterator = new DirectoryIterator('./depot/' . $folder);
         foreach ($iterator as $file) {
             if (!$file->isDot()) {
                 $fileList[] = $file->getFilename();

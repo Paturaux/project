@@ -16,18 +16,18 @@
         <input type="texte" name="nameFile"/>
         <input type="submit" name="doc" value="cr&eacute;er"/>
     </form>
-    
+
     <div id="repository"></div>
     <div class="file typefolder" id="azaz">
         <img class="fileImage" src="./resources/icones/folder.png"/>
         <span class="fileName">Fichier test</span>
     </div>
-    
+
     <!--<?php foreach ($fileListe as $file): ?>
-        <div class="file">
-            <img class="fileImage" src="./<?= $file['fullPath'] ?>"/>
-            <span class="fileName"><?= $file['name'] ?></span>
-        </div>
+                                                                                                <div class="file">
+                                                                                                    <img class="fileImage" src="./<?= $file['fullPath'] ?>"/>
+                                                                                                    <span class="fileName"><?= $file['name'] ?></span>
+                                                                                                </div>
     <?php endforeach; ?>-->
 
     <?php include_once './views/footer.php'; ?>
@@ -35,24 +35,26 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
-    $(function () {
+    $(document).ready(function () {
+        $(function(){
+            readFolder('');
+        });
         $('.typefolder').click(function () {
-            readFolder(this);
+            readFolder($(this).attr('id'));
         });
+        function readFolder(file) {
+            $.ajax({
+                type: 'GET',
+                url: '<?= $host ?>/depot_' + file + '.html',
+                timeout: 3000,
+                cache: true,
+                success: function (data) {
+                    $('#repository').replaceWith(data);
+                },
+                error: function () {
+                    console.log()('Error : readFolder(' + file + ')');
+                }
+            });
+        }
     });
-    
-    function readFolder($file){
-        $.ajax({
-            type: 'GET',
-            url: '<?= $host ?>/depot_' + $($file).attr('id') + '.html',
-            timeout: 3000,
-            cache: true,
-            success: function (data) {
-                $('#repository').replaceWith(data);
-            },
-            error: function () {
-                alert('La requête n\'a pas abouti');
-            }
-        });
-    }
 </script>
